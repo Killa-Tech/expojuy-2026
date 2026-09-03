@@ -13,8 +13,9 @@ El objetivo del proyecto es redefinir la experiencia digital de uno de los event
 *   **Integrantes:**
     1.  *[Nombre Integrante 1]* — *[Rol: Ej. Diseñador UX/UI]*
     2.  *[Nombre Integrante 2]* — *[Rol: Ej. Desarrollador Frontend]*
-    3.  *Peloc, Sergio Antonino* — *Informatico*
-    4.  *[Nombre Integrante 4]* — *[Rol: Ej. QA / Analista]* *(Opcional, máx. 4)*
+    3.  *Peloc, Sergio Antonino* — *Ing. Informatico*
+    4.  *Erazo, Joaquin* — *Lic. Sistemas*
+
 
 *Nota: Conforme a las Bases y Condiciones (Art. 5), la participación se realiza en equipos cerrados de un mínimo de dos (2) y un máximo de cuatro (4) integrantes.*
 
