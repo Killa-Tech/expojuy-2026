@@ -1,0 +1,56 @@
+/* Importación base de Tailwind v4 */
+@import "tailwindcss";
+
+/* Definición del tema personalizado */
+@theme {
+  /* Colores dinámicos vinculados a variables nativas */
+  --color-background: var(--theme-bg);
+  --color-foreground: var(--theme-text);
+  
+  --color-primary: var(--theme-primary);
+  --color-primary-foreground: var(--theme-primary-fg);
+  
+  --color-secondary: var(--theme-secondary);
+  --color-accent: var(--theme-accent);
+  --color-muted: var(--theme-muted);
+
+  /* Colores estáticos de la marca (opcional) */
+  --color-brand-cyan: #00C2CB;
+  --color-brand-violet: #791AC7;
+  --color-brand-lilac: #A980F2;
+  --color-brand-gray: #4A4A4A;
+}
+
+/* ☀️ MODO CLARO (Valores por defecto) */
+:root {
+  --theme-bg: #FFFFFF;
+  --theme-text: #4A4A4A;
+  
+  --theme-primary: #791AC7;    /* Violeta Intenso */
+  --theme-primary-fg: #FFFFFF;
+  
+  --theme-secondary: #A980F2;  /* Lila */
+  --theme-accent: #00C2CB;     /* Cian */
+  --theme-muted: #BDBDBD;      /* Gris claro */
+}
+
+/* 🌙 MODO OSCURO (Activado con la clase .dark en el html/body) */
+.dark {
+  --theme-bg: #121212;
+  --theme-text: #F3F4F6;
+  
+  --theme-primary: #A980F2;    /* Lila (Mejor contraste en fondo oscuro) */
+  --theme-primary-fg: #121212;
+  
+  --theme-secondary: #791AC7;  /* Violeta Intenso */
+  --theme-accent: #00C2CB;     /* Cian */
+  --theme-muted: #4A4A4A;      /* Gris oscuro */
+}
+
+/* Aplicación global automática */
+@layer base {
+  body {
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+  }
+}
