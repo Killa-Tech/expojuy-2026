@@ -18,5 +18,5 @@ export function VideoBackground({src,poster}: VideoBackgroundProps){
         </video>
         <div className="absolute inset-0 bg-black/60" />
         </div>
-    )
-}
+    );
+};
