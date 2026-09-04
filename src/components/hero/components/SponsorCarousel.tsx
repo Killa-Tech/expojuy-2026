@@ -1,4 +1,5 @@
 import { SponsorLogo } from "./SponsorLogo";
+import "./SponsorCarousel.css";
 
 export interface Sponsor {
     id: string;
@@ -13,7 +14,7 @@ interface SponsorCarouselProps {
 export function SponsorCarousel({ sponsors }: SponsorCarouselProps) {
     return (
         <div className="w-full overflow-hidden bg-black/40 backdrop-blur-sm border-t border-white/10 py-6">
-            <div className="flex w-max animate-[marque_25s_linear_infinite]">
+            <div className="flex w-max animate-marquee">
                 {[...sponsors, ...sponsors].map((sponsor, index) => (
                     <SponsorLogo key={`${sponsor.id}-${index}`} name={sponsor.name} logoUrl={sponsor.logoUrl} />
                 ))}
