@@ -2,6 +2,8 @@ type NavigationProps = {
   onToggleMobileMenu: () => void
 }
 
+import { ThemeToggle } from "./theme-toggle"
+
 const links = ["Inicio", "Agenda", "Expositores"]
 
 const LinkList = ({ mobile = false }: { mobile?: boolean }) => (
@@ -23,6 +25,7 @@ export const Navigation = ({ onToggleMobileMenu }: NavigationProps) => (
   <div className="flex shrink-0 items-center gap-2 md:gap-5">
     <LinkList />
     <div className="flex items-center gap-2">
+      <ThemeToggle />
       <button type="button" onClick={onToggleMobileMenu} className="rounded-xl p-2 text-foreground/80 transition-colors hover:bg-foreground/10 hover:text-foreground lg:hidden" aria-label="Abrir menú de navegación"><span className="text-2xl" aria-hidden="true">☰</span></button>
     </div>
   </div>
