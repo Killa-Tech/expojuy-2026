@@ -32,7 +32,7 @@ export function SponsorLogo({ name, logoUrl }: SponsorLogoProps) {
                     {name.charAt(0)}
                 </div>
             )}
-            <span className="text-sm font-medium text-muted tracking-wide group-hover:text-brand-lilac transition-colors whitespace-nowrap">
+            <span className="text-sm font-medium text-gray-200 tracking-wide group-hover:text-brand-lilac transition-colors whitespace-nowrap">
                 {name}
             </span>
         </div>

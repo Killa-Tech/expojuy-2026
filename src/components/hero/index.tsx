@@ -1,9 +1,9 @@
 import { SponsorCarousel, type Sponsor } from "./components/SponsorCarousel";
 import { VideoBackground } from "./components/VideoBackground";
 
-interface HeroProps{
-  title:string;
-  subtitle:string;
+interface HeroProps {
+  title: string;
+  subtitle: string;
   videoSrc: string;
   ctaText: string;
   onCtaClick: () => void;
@@ -11,7 +11,7 @@ interface HeroProps{
 }
 
 
-export const Hero = ({title,subtitle,videoSrc,ctaText,onCtaClick,sponsors}:HeroProps) => {
+export const Hero = ({ title, subtitle, videoSrc, ctaText, onCtaClick, sponsors }: HeroProps) => {
   const renderTitle = (fullTitle: string) => {
     const parts = fullTitle.trim().split(" ");
     if (parts.length > 1) {
@@ -34,7 +34,7 @@ export const Hero = ({title,subtitle,videoSrc,ctaText,onCtaClick,sponsors}:HeroP
 
   return (
     <section className="relative isolate w-full min-h-[calc(100vh-4rem)] flex flex-col justify-between text-white overflow-hidden">
-      <VideoBackground src={videoSrc}/>
+      <VideoBackground src={videoSrc} />
       <div className="flex-1 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto py-12 md:py-16">
         {/* Nivel 3: Badge contextual */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-violet/40 border border-brand-lilac/30 backdrop-blur-md mb-6 shadow-sm">
@@ -49,23 +49,23 @@ export const Hero = ({title,subtitle,videoSrc,ctaText,onCtaClick,sponsors}:HeroP
           {renderTitle(title)}
         </h1>
 
-        {/* Nivel 2: Subtítulo con jerarquía de lectura suave */}
-        <p className="text-lg md:text-2xl text-gray-200 max-w-2xl mb-8 font-light leading-relaxed drop-shadow">
+        {/* Nivel 2: Subtítulo con jerarquía de lectura clara sobre el video */}
+        <p className="text-lg md:text-2xl text-white max-w-2xl mb-8 font-medium leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
           {subtitle}
         </p>
 
         {/* Botón CTA con colores de la marca */}
         <button
           onClick={onCtaClick}
-          className="px-8 py-4 bg-brand-violet hover:bg-brand-violet/90 active:bg-brand-lilac text-white font-semibold rounded-full shadow-lg shadow-brand-violet/40 hover:shadow-brand-violet/70 border border-brand-lilac/30 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer flex items-center gap-2"
+          className="px-8 py-4 bg-brand-violet hover:bg-brand-violet/90 active:bg-brand-lilac text-white font-semibold rounded-full shadow-lg shadow-brand-violet/40 hover:shadow-brand-violet/70 border border-brand-lilac/30 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer flex items-center gap-2 group"
         >
           <span>{ctaText}</span>
-          <svg className="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-brand-cyan transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </button>
       </div>
-      <SponsorCarousel sponsors={sponsors}/>
+      <SponsorCarousel sponsors={sponsors} />
     </section>
   );
 };   
