@@ -1,8 +1,10 @@
 import { RotateCcw, ZoomIn, ZoomOut } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { useTheme } from "@/contexts/theme";
 import { EventMapScene } from "./scene";
 import type { EventMapCategory, EventMapSector } from "./event-map.types";
+import { getEventMapPalette } from "./palette";
 
 const sectors: EventMapSector[] = [
   {
@@ -13,8 +15,6 @@ const sectors: EventMapSector[] = [
     description: "Organismos públicos, dependencias y representaciones de la provincia.",
     position: [-4.2, 0, -2.35],
     size: [3.6, 0.72, 2.15],
-    color: "#791ac7",
-    accent: "#a980f2",
   },
   {
     id: "industrial",
@@ -24,8 +24,6 @@ const sectors: EventMapSector[] = [
     description: "El motor productivo del Norte, con la identidad minera e industrial de Jujuy.",
     position: [0, 0, -2.35],
     size: [4.25, 0.92, 2.15],
-    color: "#4a4a4a",
-    accent: "#00c2cb",
   },
   {
     id: "commerce",
@@ -35,8 +33,6 @@ const sectors: EventMapSector[] = [
     description: "Un espacio dinámico para emprendedores, empresas y soluciones TIC.",
     position: [4.25, 0, -2.35],
     size: [3.25, 0.64, 2.15],
-    color: "#00c2cb",
-    accent: "#a980f2",
   },
   {
     id: "exterior",
@@ -46,8 +42,6 @@ const sectors: EventMapSector[] = [
     description: "Área al aire libre para conocer maquinaria, vehículos y grandes equipos.",
     position: [-4.15, 0, 1.35],
     size: [3.7, 0.52, 2.35],
-    color: "#4a4a4a",
-    accent: "#00c2cb",
   },
   {
     id: "auditorium",
@@ -57,8 +51,6 @@ const sectors: EventMapSector[] = [
     description: "Conferencias, encuentros y rondas para fortalecer la vinculación empresarial.",
     position: [0.25, 0, 1.35],
     size: [4.2, 0.84, 2.35],
-    color: "#791ac7",
-    accent: "#00c2cb",
   },
   {
     id: "gastronomy",
@@ -68,8 +60,6 @@ const sectors: EventMapSector[] = [
     description: "Un área recreativa para descansar, encontrarse y disfrutar la visita.",
     position: [4.3, 0, 1.35],
     size: [3.15, 0.58, 2.35],
-    color: "#a980f2",
-    accent: "#00c2cb",
   },
 ];
 
@@ -83,6 +73,8 @@ const categoryLabels: Record<EventMapCategory, string> = {
 };
 
 export const EventMap = () => {
+  const { theme } = useTheme();
+  const palette = getEventMapPalette(theme);
   const [selectedId, setSelectedId] = useState(sectors[0].id);
   const [resetToken, setResetToken] = useState(0);
   const [zoom, setZoom] = useState(33);
@@ -123,6 +115,7 @@ export const EventMap = () => {
           <div className="relative">
             <EventMapScene
               sectors={sectors}
+              palette={palette}
               selectedId={selectedId}
               onSelect={selectSector}
               resetToken={resetToken}
@@ -132,7 +125,7 @@ export const EventMap = () => {
               <button
                 type="button"
                 onClick={() => setZoom((value) => Math.min(48, value + 3))}
-                className="grid size-11 place-items-center rounded-xl border border-white/15 bg-[#121212]/85 text-white shadow-lg backdrop-blur transition-colors hover:bg-brand-violet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
+                className="grid size-11 place-items-center rounded-xl border border-border bg-background/85 text-foreground shadow-lg backdrop-blur transition-colors hover:bg-primary hover:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
                 aria-label="Acercar mapa"
                 title="Acercar mapa"
               >
@@ -141,7 +134,7 @@ export const EventMap = () => {
               <button
                 type="button"
                 onClick={() => setZoom((value) => Math.max(25, value - 3))}
-                className="grid size-11 place-items-center rounded-xl border border-white/15 bg-[#121212]/85 text-white shadow-lg backdrop-blur transition-colors hover:bg-brand-violet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
+                className="grid size-11 place-items-center rounded-xl border border-border bg-background/85 text-foreground shadow-lg backdrop-blur transition-colors hover:bg-primary hover:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
                 aria-label="Alejar mapa"
                 title="Alejar mapa"
               >
@@ -150,7 +143,7 @@ export const EventMap = () => {
               <button
                 type="button"
                 onClick={resetView}
-                className="grid size-11 place-items-center rounded-xl border border-white/15 bg-[#121212]/85 text-white shadow-lg backdrop-blur transition-colors hover:bg-brand-violet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
+                className="grid size-11 place-items-center rounded-xl border border-border bg-background/85 text-foreground shadow-lg backdrop-blur transition-colors hover:bg-primary hover:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
                 aria-label="Restablecer vista del mapa"
                 title="Restablecer vista"
               >
@@ -185,7 +178,7 @@ export const EventMap = () => {
                       onClick={() => selectSector(sector)}
                       className={`flex min-h-12 items-center gap-3 rounded-xl border px-3 text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan ${isSelected ? "border-brand-cyan/60 bg-brand-cyan/10" : "border-transparent hover:border-border hover:bg-background"}`}
                     >
-                      <span className="size-3 shrink-0 rounded-full" style={{ backgroundColor: sector.accent }} />
+                      <span className="size-3 shrink-0 rounded-full" style={{ backgroundColor: palette.sectorColors[sector.category].accent }} />
                       <span className="min-w-0 flex-1 text-sm font-semibold text-foreground">{sector.name}</span>
                       <span className="text-muted-foreground" aria-hidden="true">›</span>
                     </button>
@@ -205,7 +198,7 @@ export const EventMap = () => {
             const sector = sectors.find((item) => item.category === category);
             return (
               <span key={category} className="inline-flex items-center gap-2">
-                <span className="size-2.5 rounded-full" style={{ backgroundColor: sector?.accent }} />
+                <span className="size-2.5 rounded-full" style={{ backgroundColor: sector ? palette.sectorColors[sector.category].accent : palette.accent }} />
                 {label}
               </span>
             );

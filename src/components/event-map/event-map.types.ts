@@ -14,6 +14,23 @@ export type EventMapSector = {
   description: string;
   position: [number, number, number];
   size: [number, number, number];
-  color: string;
+};
+
+export type EventMapPalette = {
+  background: string;
+  foreground: string;
+  primary: string;
+  secondary: string;
   accent: string;
+  muted: string;
+  floor: string;
+  surface: string;
+  gridPrimary: string;
+  gridSecondary: string;
+  sectorColors: Record<EventMapCategory, {
+    color: string;
+    accent: string;
+    label: string;
+    labelShadow: string;
+  }>;
 };
