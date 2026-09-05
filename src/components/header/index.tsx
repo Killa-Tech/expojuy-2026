@@ -3,7 +3,7 @@ import { AISearch } from "./ai-search"
 import { Logo } from "./logo"
 import { MobileMenu, NAV_MENU_NAME, Navigation } from "./navigation"
 import type { NavLink } from "./navigation"
-import { useFloatingMenu } from "../../contexts/floating-menu"
+import { useFloatingMenu } from "@/contexts/floating-menu"
 
 export const Header = () => {
   const [activeLink, setActiveLink] = useState<NavLink>("Agenda")

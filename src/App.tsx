@@ -1,5 +1,7 @@
+import { About } from "./components/about";
 import { Agenda } from "./components/agenda"
 import { Expositores } from "./components/expositores"
+import { Footer } from "./components/footer";
 import { Header } from "./components/header"
 import { Hero } from "./components/hero"
 
@@ -26,7 +28,10 @@ function App() {
         />
         <Agenda />
         <Expositores />
+        <About/>
       </main>
+
+      <Footer/>
     </>
   )
 }
