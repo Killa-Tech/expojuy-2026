@@ -1,0 +1,12 @@
+[
+  { "name": "Jueves", "date": "08", "label": "Apertura oficial" },
+  {
+    "name": "Viernes",
+    "date": "09",
+    "label": "Minería y transición",
+    "active": true
+  },
+  { "name": "Sábado", "date": "10", "label": "Pabellones y agro" },
+  { "name": "Domingo", "date": "11", "label": "Familias y cultura" },
+  { "name": "Lunes", "date": "12", "label": "Rondas de negocio" }
+]
