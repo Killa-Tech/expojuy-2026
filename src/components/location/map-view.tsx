@@ -95,7 +95,7 @@ export const LocationMap = ({ venue }: LocationMapProps) => {
         </MapMarker>
         <MapControls showCompass showFullscreen position="top-right" />
       </Map>
-      <div className="absolute bottom-2 left-2 z-10 rounded-sm bg-background/90 px-2 py-1 text-[10px] text-muted-foreground shadow-sm backdrop-blur-sm">
+      <div className="absolute top-2 left-2 z-10 rounded-sm bg-background/70 px-2 py-1 text-[10px] text-muted-foreground shadow-sm backdrop-blur-sm">
         ©{" "}
         <a
           href="https://carto.com/about-carto/"
