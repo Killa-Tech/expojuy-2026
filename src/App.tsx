@@ -4,6 +4,7 @@ import { Expositores } from "./components/expositores"
 import { Footer } from "./components/footer";
 import { Header } from "./components/header"
 import { Hero } from "./components/hero"
+import { Location } from "./components/location"
 
 const mockSponsors = [
   { id: '1', name: 'Sponsor 1', logoUrl: '/logos/sponsor-1.webp' },
@@ -28,6 +29,7 @@ function App() {
         />
         <Agenda />
         <Expositores />
+        <Location/>
         <About/>
       </main>
 
