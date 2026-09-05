@@ -42,7 +42,7 @@ export const Agenda = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-full flex-nowrap justify-center gap-3 overflow-x-auto pb-2">
+      <div className="flex w-full flex-nowrap justify-start gap-3 overflow-x-auto pb-2">
         {agendaDays.map((day) => (
           <button
             key={day.name}
