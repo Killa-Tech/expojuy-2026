@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1");
-
+@import "@fontsource/material-symbols-outlined/400.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -89,6 +88,26 @@
 }
 
 @layer base {
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined" !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga" !important;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "liga" !important;
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
+  }
+
   html {
     background-color: var(--theme-bg);
     @apply font-sans;
