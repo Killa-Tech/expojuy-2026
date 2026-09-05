@@ -52,26 +52,26 @@ export const AgendaCard = ({
   };
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#17171f] shadow-2xl transition-all duration-300 hover:border-purple-500/40 hover:shadow-purple-950/30">
+    <article className="group flex flex-col overflow-hidden rounded-2xl border border-foreground/10 bg-background shadow-2xl shadow-primary/10 transition-all duration-300 hover:border-primary/40 hover:shadow-primary/20">
       <div className="relative h-52 w-full overflow-hidden">
         <img
           alt={imageAlt}
           className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           src={image}
         />
-        <div className="absolute inset-0 bg-linear-to-t from-[#17171f] via-[#17171f]/50 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-transparent" />
         <div className="absolute inset-x-3.5 top-3.5 flex items-center justify-between">
-          <div className="flex items-center gap-1.5 rounded-full border border-tertiary/20 bg-black/75 px-3 py-1 text-xs font-bold text-tertiary shadow-md backdrop-blur-md">
-            <span className="material-symbols-outlined text-[16px] text-tertiary">
+          <div className="flex items-center gap-1.5 rounded-full border border-accent/30 bg-background/80 px-3 py-1 text-xs font-bold text-accent shadow-md backdrop-blur-md">
+            <span className="material-symbols-outlined text-[16px] text-accent">
               schedule
             </span>
             <span>HOY • {time} hs</span>
           </div>
-          <div className="rounded-full border border-purple-400/30 bg-brand-violet px-3 py-1 text-xs font-bold text-white shadow-md">
+          <div className="rounded-full border border-secondary/40 bg-brand-violet px-3 py-1 text-xs font-bold text-primary-foreground shadow-md">
             {badge}
           </div>
         </div>
-        <div className="absolute bottom-3 left-3.5 flex items-center gap-1.5 rounded-lg border border-white/10 bg-surface-container-highest/90 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">
+        <div className="absolute bottom-3 left-3.5 flex items-center gap-1.5 rounded-lg border border-foreground/10 bg-background/85 px-3 py-1 text-xs font-semibold text-foreground backdrop-blur-md">
           <span className="material-symbols-outlined text-[16px] text-primary">
             apartment
           </span>
@@ -88,14 +88,14 @@ export const AgendaCard = ({
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-primary">
               {category}
             </span>
-            <span className="ml-auto rounded bg-tertiary/10 px-2 py-0.5 text-[11px] font-semibold text-tertiary">
+            <span className="ml-auto rounded bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent">
               {room}
             </span>
           </div>
-          <h3 className="text-lg font-bold leading-snug text-white transition-colors group-hover:text-primary md:text-xl">
+          <h3 className="text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-primary md:text-xl">
             {title}
           </h3>
-          <p className="text-sm leading-relaxed text-[#aba3b5] line-clamp-2">
+          <p className="text-sm leading-relaxed text-foreground/70 line-clamp-2">
             {description}
           </p>
           <div className="flex items-center gap-3 pt-1">
@@ -105,53 +105,50 @@ export const AgendaCard = ({
               src={speakerImage}
             />
             <div className="flex min-w-0 flex-col">
-              <span className="truncate text-sm font-bold text-white">
+              <span className="truncate text-sm font-bold text-foreground">
                 {speakerName}
               </span>
-              <span className="truncate text-xs text-[#aba3b5]">
+              <span className="truncate text-xs text-foreground/70">
                 {speakerRole}
               </span>
             </div>
           </div>
         </div>
 
-        <div className="relative mt-auto flex flex-col gap-2 overflow-hidden rounded-xl border border-white/10 bg-linear-to-r from-[#211f2d] via-[#1d1b28] to-[#1a232c] p-4 shadow-inner">
-          <div className="absolute bottom-0 left-0 top-0 w-1.5 bg-linear-to-b from-tertiary via-secondary to-primary-container" />
+        <div className="relative mt-auto flex flex-col gap-2 overflow-hidden rounded-xl border border-foreground/10 bg-linear-to-r from-secondary/10 via-primary/5 to-accent/10 p-4 shadow-inner">
+          <div className="absolute bottom-0 left-0 top-0 w-1.5 bg-linear-to-b from-accent via-secondary to-primary" />
           <div className="flex items-center justify-between pl-2">
-            <span className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-tertiary">
-              <span className="material-symbols-outlined text-[16px] text-tertiary">
+            <span className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-accent">
+              <span className="material-symbols-outlined text-[16px] text-accent">
                 celebration
               </span>
               SHOW CENTRAL DEL DÍA
             </span>
-            <span className="rounded-full border border-white/10 bg-black/50 px-2.5 py-0.5 text-xs font-bold text-white">
+            <span className="rounded-full border border-foreground/10 bg-background/70 px-2.5 py-0.5 text-xs font-bold text-foreground">
               {showTime} hs
             </span>
           </div>
           <div className="flex items-center justify-between gap-3 pl-2">
             <div className="flex min-w-0 flex-col">
-              <h4 className="text-base font-extrabold text-white">
+              <h4 className="text-base font-extrabold text-foreground">
                 {showTitle}
               </h4>
-              <p className="mt-0.5 flex items-center gap-1 text-xs text-[#d4bbff]">
-                <span className="material-symbols-outlined text-[14px]">
-                  music_note
-                </span>
+              <p className="mt-0.5 text-xs text-secondary">
                 <span>{showDescription}</span>
               </p>
             </div>
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-purple-400/30 bg-secondary-container/80 text-white shadow-md">
-              <span className="material-symbols-outlined text-2xl text-[#d4bbff]">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-secondary/40 bg-secondary/20 text-secondary shadow-md">
+              <span className="material-symbols-outlined text-2xl text-secondary">
                 festival
               </span>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center justify-between border-t border-white/5 pt-2">
+        <div className="flex items-center justify-between border-t border-foreground/10 pt-2">
           <div className="flex items-center gap-2">
             <button
-              className="flex items-center gap-2 rounded-xl bg-linear-to-r from-brand-violet to-[#9c3ce7] px-4 py-2 text-xs font-bold text-white shadow-md transition-all hover:brightness-110 active:scale-95"
+              className="flex items-center gap-2 rounded-xl bg-linear-to-r from-brand-violet to-brand-lilac px-4 py-2 text-xs font-bold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:brightness-110 active:scale-95"
               onClick={() => setIsScheduled((current) => !current)}
               type="button"
             >
@@ -162,7 +159,7 @@ export const AgendaCard = ({
             </button>
             <button
               aria-label="Compartir evento"
-              className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/5 bg-surface-container-high text-on-surface-variant transition-colors hover:bg-surface-container-highest hover:text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5 text-foreground/70 transition-colors hover:bg-foreground/10 hover:text-foreground"
               onClick={handleShare}
               title="Compartir"
               type="button"
@@ -173,7 +170,7 @@ export const AgendaCard = ({
             </button>
           </div>
           <a
-            className="inline-flex items-center gap-1 text-xs font-bold text-primary transition-colors hover:text-white"
+            className="inline-flex items-center gap-1 text-xs font-bold text-primary transition-colors hover:text-foreground"
             href="#"
           >
             <span>Detalles del día</span>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { useFloatingMenu } from "../../contexts/floating-menu"
+import { useFloatingMenu } from "@/contexts/floating-menu"
 
 const prompts = [
   { icon: "✦", label: "Conferencias de Minería y Litio", query: "¿Qué conferencias sobre Minería y Litio hay hoy?", color: "text-brand-cyan" },
