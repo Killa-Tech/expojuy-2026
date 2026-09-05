@@ -1,6 +1,7 @@
 import { About } from "./components/about";
 import { Agenda } from "./components/agenda"
 import { Expositores } from "./components/expositores"
+import { EventMap } from "./components/event-map"
 import { Footer } from "./components/footer";
 import { Header } from "./components/header"
 import { Hero } from "./components/hero"
@@ -28,6 +29,7 @@ function App() {
           sponsors={mockSponsors}
         />
         <Agenda />
+        <EventMap />
         <Expositores />
         <Location/>
         <About/>
