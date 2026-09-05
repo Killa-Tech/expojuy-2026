@@ -63,8 +63,7 @@ export const AISearch = () => {
       {isPanelOpen && (
         <div className="absolute left-0 right-0 top-full z-50 mt-3 rounded-2xl border border-foreground/10 bg-background/95 p-4 shadow-2xl backdrop-blur-2xl">
           <div className="mb-3 flex items-center justify-between gap-3 border-b border-foreground/10 pb-3 text-xs">
-            <span className="flex items-center gap-1.5 font-semibold text-foreground/70"><span className="text-sm text-brand-cyan" aria-hidden="true">✦</span>Asistente Inteligente Multipropósito</span>
-            <span className="rounded-full bg-primary/20 px-2 py-0.5 text-[11px] font-semibold text-secondary">Agenda, Expositores y Plano 2026</span>
+            <span className="flex items-center gap-1.5 font-semibold text-foreground/70"><span className="text-sm text-brand-cyan" aria-hidden="true">✦</span>Asistente Inteligente</span>
           </div>
           <div className="mb-2 text-[11px] font-bold uppercase tracking-wider text-foreground/70">Consultas frecuentes</div>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
