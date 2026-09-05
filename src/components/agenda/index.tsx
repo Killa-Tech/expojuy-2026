@@ -1,19 +1,9 @@
 import { AgendaCard } from "./card";
+import agendaDays from "@/assets/agenda-days.json";
+import agendaEvents from "@/assets/agenda-events.json";
+import agendaStats from "@/assets/agenda-stats.json";
 
 export const Agenda = () => {
-  const days = [
-    { name: "Jueves", date: "08", label: "Apertura oficial" },
-    {
-      name: "Viernes",
-      date: "09",
-      label: "Minería y transición",
-      active: true,
-    },
-    { name: "Sábado", date: "10", label: "Pabellones y agro" },
-    { name: "Domingo", date: "11", label: "Familias y cultura" },
-    { name: "Lunes", date: "12", label: "Rondas de negocio" },
-  ];
-
   return (
     <section className="mx-auto flex w-full max-w-6xl flex-col items-center bg-background px-4 py-8 text-foreground">
       <div className="mb-6 flex w-full flex-col gap-3 md:flex-row md:items-end md:justify-between">
@@ -29,7 +19,7 @@ export const Agenda = () => {
           <div className="rounded-2xl border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-foreground/80">
             <span>
               <h2 className="mt-2 text-2xl font-black text-foreground text-center">
-                7
+                {agendaStats.days}
               </h2>
               Jornadas
             </span>
@@ -37,7 +27,7 @@ export const Agenda = () => {
           <div className="rounded-2xl border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-foreground/80">
             <span>
               <h2 className="mt-2 text-2xl font-black text-foreground text-center">
-                +25
+                {agendaStats.speakers}
               </h2>
               Disertantes
             </span>
@@ -45,7 +35,7 @@ export const Agenda = () => {
           <div className="rounded-2xl border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-foreground/80">
             <span>
               <h2 className="mt-2 text-2xl font-black text-foreground text-center">
-                12
+                {agendaStats.shows}
               </h2>
               Shows Musicales
             </span>
@@ -53,7 +43,7 @@ export const Agenda = () => {
         </div>
       </div>
       <div className="flex w-full flex-nowrap justify-center gap-3 overflow-x-auto pb-2">
-        {days.map((day) => (
+        {agendaDays.map((day) => (
           <button
             key={day.name}
             type="button"
@@ -106,7 +96,9 @@ export const Agenda = () => {
         ))}
       </div>
       <div className="mt-8 grid w-full gap-4 lg:grid-cols-2">
-        <AgendaCard />
+        {agendaEvents.map((event) => (
+          <AgendaCard key={event.title} {...event} />
+        ))}
       </div>
     </section>
   );
