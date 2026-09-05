@@ -14,7 +14,13 @@ export const Location = () => {
     return (
         <section id="ubicacion" className="w-full border-y border-border bg-muted/35 px-4 py-20 md:px-8 lg:py-28">
             <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16">
-                <div className="max-w-xl">
+                <a
+                    className="group block max-w-xl cursor-pointer rounded-lg focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-brand-violet"
+                    href={venue.mapsUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Abrir ${venue.name} en Google Maps`}
+                >
                     <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-cyan">
                         Encontranos en Jujuy
                     </p>
@@ -34,7 +40,7 @@ export const Location = () => {
                             <p className="text-sm text-muted-foreground">{venue.city}</p>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <LocationMap venue={venue} />
             </div>
