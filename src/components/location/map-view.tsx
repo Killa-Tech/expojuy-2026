@@ -6,6 +6,7 @@ import {
   MarkerPopup,
   useMap,
 } from "@/components/ui/map";
+import { useTheme } from "@/contexts/theme";
 import { Crosshair, MapPin, Navigation } from "lucide-react";
 
 type Venue = {
@@ -55,6 +56,8 @@ const VenueRecenterButton = () => {
 };
 
 export const LocationMap = ({ venue }: LocationMapProps) => {
+  const { theme } = useTheme();
+
   return (
     <div className="relative isolate h-[22rem] overflow-hidden rounded-xl border border-border bg-background shadow-xl shadow-brand-violet/10 [&_.maplibregl-ctrl-attrib]:hidden md:h-[30rem]">
       <Map
@@ -64,6 +67,7 @@ export const LocationMap = ({ venue }: LocationMapProps) => {
         minZoom={10}
         maxBounds={MAP_BOUNDS}
         attributionControl={false}
+        theme={theme}
         className="size-full"
       >
         <VenueRecenterButton />
