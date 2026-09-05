@@ -2,6 +2,7 @@ import { MapPin } from "lucide-react";
 
 import { LocationMap } from "./map-view";
 import { ShareLocationButton } from "./share-location-button";
+import { Section } from "@/components/section";
 
 const venue = {
     name: "Ciudad Cultural",
@@ -13,7 +14,7 @@ const venue = {
 
 export const Location = () => {
     return (
-        <section id="ubicacion" className="w-full border-y border-border bg-muted/35 px-4 py-20 md:px-8 lg:py-28">
+        <Section id="ubicacion" label="Ubicación" className="w-full border-y border-border bg-muted/35 px-4 py-20 md:px-8 lg:py-28">
             <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16">
                 <div className="max-w-xl rounded-lg">
                     <a
@@ -48,6 +49,6 @@ export const Location = () => {
 
                 <LocationMap venue={venue} />
             </div>
-        </section>
+        </Section>
     );
 };

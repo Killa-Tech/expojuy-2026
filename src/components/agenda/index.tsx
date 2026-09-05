@@ -2,10 +2,11 @@ import { AgendaCard } from "./card";
 import agendaDays from "@/assets/agenda-days.json";
 import agendaEvents from "@/assets/agenda-events.json";
 import agendaStats from "@/assets/agenda-stats.json";
+import { Section } from "@/components/section";
 
 export const Agenda = () => {
   return (
-    <section className="flex w-full flex-col items-center bg-background px-6 py-8 text-foreground md:px-12">
+    <Section id="agenda" label="Agenda" className="flex w-full flex-col items-center bg-background px-6 py-8 text-foreground md:px-12">
       <div className="mb-6 flex w-full flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-3xl font-bold uppercase tracking-[0.100em] text-primary">
@@ -105,6 +106,6 @@ export const Agenda = () => {
           <AgendaCard key={event.title} {...event} />
         ))}
       </div>
-    </section>
+    </Section>
   );
 };

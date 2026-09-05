@@ -2,7 +2,7 @@ import logo from "@/assets/logo-header.png"
 
 export const Logo = () => (
   <div className="flex shrink-0 items-center gap-3">
-    <a href="#" className="group flex items-center gap-3 focus:outline-none" aria-label="Expojuy Inicio">
+    <a href="#inicio" className="group flex items-center gap-3 focus:outline-none" aria-label="Expojuy Inicio">
       <img
         src={logo}
         alt="Logo Expojuy - Conectando Países, Creando Oportunidades"
