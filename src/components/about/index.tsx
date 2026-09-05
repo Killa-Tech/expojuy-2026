@@ -1,3 +1,5 @@
+import { Section } from "@/components/section"
+
 export const About = () => {
-    return <section>Nosotros</section>
+    return <Section id="about" label="About">Nosotros</Section>
 }

@@ -1,12 +1,11 @@
-import { useState } from "react"
 import { AISearch } from "./ai-search"
 import { Logo } from "./logo"
 import { MobileMenu, NAV_MENU_NAME, Navigation } from "./navigation"
-import type { NavLink } from "./navigation"
 import { useFloatingMenu } from "@/contexts/floating-menu"
+import { useNavbar } from "@/hooks/use-navbar"
 
 export const Header = () => {
-  const [activeLink, setActiveLink] = useState<NavLink>("Agenda")
+  const { links, activeSection, selectSection } = useNavbar()
   const { isOpen, menu } = useFloatingMenu()
 
   return (
@@ -14,9 +13,9 @@ export const Header = () => {
       <div className="mx-auto flex h-24 max-w-[1720px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-10 xl:gap-8">
         <Logo />
         <AISearch />
-        <Navigation activeLink={activeLink} onSelectLink={setActiveLink} />
+        <Navigation links={links} activeSection={activeSection} onSelectSection={selectSection} />
       </div>
-      {isOpen && menu === NAV_MENU_NAME && <MobileMenu activeLink={activeLink} onSelectLink={setActiveLink} />}
+      {isOpen && menu === NAV_MENU_NAME && <MobileMenu links={links} activeSection={activeSection} onSelectSection={selectSection} />}
     </header>
   )
 }

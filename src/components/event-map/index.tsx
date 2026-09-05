@@ -6,6 +6,8 @@ import { EventMapScene } from "./scene";
 import type { EventMapCategory, EventMapSector } from "./event-map.types";
 import { getEventMapPalette } from "./palette";
 
+import {Section} from '../section'
+
 const sectors: EventMapSector[] = [
   {
     id: "institutional",
@@ -97,7 +99,7 @@ export const EventMap = () => {
   };
 
   return (
-    <section id="mapa-evento" className="w-full border-y border-border bg-background px-4 py-20 md:px-8 lg:py-28">
+    <Section id="mapa-evento" label="Predio" className="w-full border-y border-border bg-background px-4 py-20 md:px-8 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-cyan">
@@ -221,6 +223,6 @@ export const EventMap = () => {
           </div>
         </details>
       </div>
-    </section>
+    </Section>
   );
 };

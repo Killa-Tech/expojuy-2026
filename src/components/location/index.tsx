@@ -2,6 +2,7 @@ import { MapPin } from "lucide-react";
 
 import { LocationMap } from "./map-view";
 import { ShareLocationButton } from "./share-location-button";
+import { Section } from "@/components/section";
 
 const venue = {
   name: "Ciudad Cultural",
@@ -13,8 +14,9 @@ const venue = {
 
 export const Location = () => {
   return (
-    <section
+    <Section
       id="ubicacion"
+      label="Ubicación"
       className="w-full border-y border-border bg-muted/35 px-4 py-20 md:px-8 lg:py-28"
     >
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16">
@@ -30,7 +32,7 @@ export const Location = () => {
             Jujuy. Explorá el mapa para ubicar el predio y planificar tu
             llegada.
           </p>
-          
+
           <a
             className="group block cursor-pointer rounded-lg focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-brand-violet"
             href={venue.mapsUrl}
@@ -60,6 +62,6 @@ export const Location = () => {
 
         <LocationMap venue={venue} />
       </div>
-    </section>
+    </Section>
   );
 };
