@@ -1,4 +1,5 @@
 import { useTheme } from "@/contexts/theme";
+import { useVideoContext } from "../video-context";
 
 interface VideoBackgroundProps {
     src: string;
@@ -7,6 +8,7 @@ interface VideoBackgroundProps {
 
 export function VideoBackground({ src, poster }: VideoBackgroundProps) {
     const { theme } = useTheme();
+    const {setIsVideoLoaded} = useVideoContext()
     
     const overlayClass = theme === "dark" ? "bg-black/40" : "bg-transparent";
     const gradientClass = theme === "dark"
@@ -21,6 +23,7 @@ export function VideoBackground({ src, poster }: VideoBackgroundProps) {
                 muted
                 playsInline
                 poster={poster}
+                onCanPlayThrough={() => setIsVideoLoaded(true)}
                 className="object-cover w-full h-full"
             >
                 <source src={src} type="video/mp4" />
