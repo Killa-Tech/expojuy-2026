@@ -1,43 +1,60 @@
 import { Section } from "@/components/section";
+import {
+  BarChart3,
+  ChevronDown,
+  ChevronUp,
+  Cog,
+  Globe2,
+  GraduationCap,
+  Handshake,
+  Languages,
+  Lightbulb,
+  Rocket,
+  Telescope,
+  TrendingUp,
+  UserPlus,
+  Users,
+  Wallet,
+} from "lucide-react";
 import { useState } from "react";
 
 const purposes = [
   {
-    icon: "trending_up",
+    icon: TrendingUp,
     text: "Presentar las ventajas económicas y comerciales de la provincia.",
   },
   {
-    icon: "precision_manufacturing",
+    icon: Cog,
     text: "Presentar y demostrar productos, maquinaria, nuevas tecnologías y servicios.",
   },
   {
-    icon: "person_add",
+    icon: UserPlus,
     text: "Construir o ampliar la lista de clientes potenciales.",
   },
-  { icon: "public", text: "Sumar nuevos mercados." },
-  { icon: "language", text: "Internacionalización y expansión de marcas." },
-  { icon: "payments", text: "Buscar inversiones." },
+  { icon: Globe2, text: "Sumar nuevos mercados." },
+  { icon: Languages, text: "Internacionalización y expansión de marcas." },
+  { icon: Wallet, text: "Buscar inversiones." },
   {
-    icon: "handshake",
+    icon: Handshake,
     text: "Buscar cooperación y desarrollar alianzas estratégicas para proyectos públicos y privados.",
   },
   {
-    icon: "travel_explore",
+    icon: Telescope,
     text: "Difundir la cultura de la provincia y fomentar el turismo.",
   },
-  { icon: "analytics", text: "Actualizarse sobre la situación del mercado." },
+  { icon: BarChart3, text: "Actualizarse sobre la situación del mercado." },
   {
-    icon: "school",
+    icon: GraduationCap,
     text: "Capacitarse e informarse sobre las tendencias en los negocios.",
   },
-  { icon: "query_stats", text: "Conocer mejor a los competidores." },
-  { icon: "lightbulb", text: "Descubrir nuevas oportunidades." },
+  { icon: BarChart3, text: "Conocer mejor a los competidores." },
+  { icon: Lightbulb, text: "Descubrir nuevas oportunidades." },
   {
-    icon: "groups",
+    icon: Users,
     text: "Generar nuevos vínculos empresariales y profesionales.",
   },
   {
-    icon: "rocket_launch",
+    icon: Rocket,
     text: "Impulsar el crecimiento y la innovación regional.",
   },
 ];
@@ -93,12 +110,10 @@ export const About = () => {
               key={purpose.text}
               className={`${index >= 4 && !isExpanded ? "hidden min-[1070px]:flex" : "flex"} min-w-[min(100%,18rem)] flex-[1_1_30%] items-start gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.05] px-4 py-3 text-sm text-foreground/85 transition-colors hover:border-primary/40 hover:bg-primary/10`}
             >
-              <span
-                className="material-symbols-outlined shrink-0 text-xl text-primary"
+              <purpose.icon
+                className="size-5 shrink-0 text-primary"
                 aria-hidden="true"
-              >
-                {purpose.icon}
-              </span>
+              />
               <span>{purpose.text}</span>
             </article>
           ))}
@@ -110,12 +125,11 @@ export const About = () => {
           className="mx-auto mt-5 flex items-center gap-2 rounded-xl border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary hover:text-primary-foreground min-[1070px]:hidden"
         >
           {isExpanded ? "Ver menos" : "Ver más"}
-          <span
-            className="material-symbols-outlined text-lg"
-            aria-hidden="true"
-          >
-            {isExpanded ? "expand_less" : "expand_more"}
-          </span>
+          {isExpanded ? (
+            <ChevronUp className="size-5" aria-hidden="true" />
+          ) : (
+            <ChevronDown className="size-5" aria-hidden="true" />
+          )}
         </button>
       </div>
     </Section>

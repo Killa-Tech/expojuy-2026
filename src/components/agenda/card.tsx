@@ -1,4 +1,14 @@
 import { useState } from "react";
+import {
+  CalendarPlus,
+  ChevronRight,
+  Clock,
+  Drama,
+  MapPin,
+  PartyPopper,
+  Share2,
+  Tag,
+} from "lucide-react";
 
 export interface AgendaCardProps {
   image: string;
@@ -62,9 +72,7 @@ export const AgendaCard = ({
         <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-transparent" />
         <div className="absolute inset-x-3.5 top-3.5 flex items-center justify-between">
           <div className="flex items-center gap-1.5 rounded-full border border-accent/30 bg-background/80 px-3 py-1 text-xs font-bold text-accent shadow-md backdrop-blur-md">
-            <span className="material-symbols-outlined text-[16px] text-accent">
-              &#xe8b5;
-            </span>
+            <Clock aria-hidden="true" className="size-4 text-accent" />
             <span className="shrink-0 whitespace-nowrap">HOY • {time} hs</span>
           </div>
           <div className="rounded-full border border-secondary/40 bg-brand-violet px-3 py-1 text-xs font-bold text-purple-100 shadow-md">
@@ -72,9 +80,7 @@ export const AgendaCard = ({
           </div>
         </div>
         <div className="absolute bottom-3 left-3.5 flex items-center gap-1.5 rounded-lg border border-foreground/10 bg-background/85 px-3 py-1 text-xs font-semibold text-foreground backdrop-blur-md">
-          <span className="material-symbols-outlined text-[16px] text-primary">
-            &#xea40;
-          </span>
+          <MapPin aria-hidden="true" className="size-4 text-primary" />
           <span>{location}</span>
         </div>
       </div>
@@ -82,9 +88,7 @@ export const AgendaCard = ({
       <div className="flex flex-1 flex-col gap-5 p-5 md:p-6">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[18px] text-primary">
-              &#xe838;
-            </span>
+            <Tag aria-hidden="true" className="size-[18px] text-primary" />
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-primary">
               {category}
             </span>
@@ -119,9 +123,7 @@ export const AgendaCard = ({
           <div className="absolute bottom-0 left-0 top-0 w-1.5 bg-linear-to-b from-accent via-secondary to-primary" />
           <div className="flex items-center justify-between pl-2">
             <span className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-accent">
-              <span className="material-symbols-outlined text-[16px] text-accent">
-                &#xea65;
-              </span>
+              <PartyPopper aria-hidden="true" className="size-4 text-accent" />
               SHOW CENTRAL DEL DÍA
             </span>
             <span className="shrink-0 whitespace-nowrap rounded-full border border-foreground/10 bg-background/70 px-2.5 py-0.5 text-xs font-bold text-foreground">
@@ -138,9 +140,7 @@ export const AgendaCard = ({
               </p>
             </div>
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-secondary/40 bg-secondary/20 text-secondary shadow-md">
-              <span className="material-symbols-outlined text-2xl text-secondary">
-                &#xea68;
-              </span>
+              <Drama aria-hidden="true" className="size-6 text-secondary" />
             </div>
           </div>
         </div>
@@ -152,9 +152,7 @@ export const AgendaCard = ({
               onClick={() => setIsScheduled((current) => !current)}
               type="button"
             >
-              <span className="material-symbols-outlined text-[18px]">
-                &#xe614;
-              </span>
+              <CalendarPlus aria-hidden="true" className="size-[18px]" />
               <span>{isScheduled ? "Agendado" : "Agendar"}</span>
             </button>
             <button
@@ -164,9 +162,7 @@ export const AgendaCard = ({
               title="Compartir"
               type="button"
             >
-              <span className="material-symbols-outlined text-[18px]">
-                &#xe80d;
-              </span>
+              <Share2 aria-hidden="true" className="size-[18px]" />
             </button>
           </div>
           <a
@@ -174,9 +170,7 @@ export const AgendaCard = ({
             href="#"
           >
             <span>Detalles del día</span>
-            <span className="material-symbols-outlined text-[16px]">
-              &#xe5c8;
-            </span>
+            <ChevronRight aria-hidden="true" className="size-4" />
           </a>
         </div>
       </div>
