@@ -24,7 +24,7 @@ export const ExpositoresFilters: React.FC<ExpositoresFiltersProps> = ({
   auditorios,
 }) => {
   return (
-    <div className="mt-8 flex flex-col gap-4 rounded-2xl bg-card text-card-foreground p-4 shadow-sm border border-border transition-colors font-['Ambit',sans-serif]">
+    <div className="mt-8 flex w-full flex-col gap-4 rounded-2xl bg-card text-card-foreground p-4 shadow-sm border border-border transition-colors font-['Ambit',sans-serif]">
       <div className="flex flex-col sm:flex-row items-center gap-3 font-['Ambit',sans-serif]">
         {/* Input de Búsqueda */}
         <div className="relative w-full sm:flex-1 font-['Ambit',sans-serif]">

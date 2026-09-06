@@ -15,8 +15,8 @@ export const ExpositoresGrid: React.FC<ExpositoresGridProps> = ({
   onResetFilters,
 }) => {
   return (
-    <div className="mt-10 font-['Ambit',sans-serif]">
-      <div className="flex items-center justify-between mb-6 font-['Ambit',sans-serif]">
+    <div className="mt-10 w-full font-['Ambit',sans-serif]">
+      <div className="flex w-full items-center justify-between mb-6 font-['Ambit',sans-serif]">
         <h2 className="text-xl font-bold tracking-tight text-foreground flex items-center gap-2 font-['Ambit',sans-serif]">
           <span className="text-primary">★</span> Oradores Magistrales Confirmados
         </h2>
@@ -26,7 +26,7 @@ export const ExpositoresGrid: React.FC<ExpositoresGridProps> = ({
       </div>
 
       {expositores.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid w-full grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
           {expositores.map((exp) => (
             <ExpositorCard
               key={exp.id}

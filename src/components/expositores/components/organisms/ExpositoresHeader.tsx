@@ -8,7 +8,7 @@ interface ExpositoresHeaderProps {
 
 export const ExpositoresHeader: React.FC<ExpositoresHeaderProps> = ({ totalExpositores }) => {
   return (
-    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-border font-['Ambit',sans-serif]">
+    <div className="flex w-full flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-border font-['Ambit',sans-serif]">
       <div className="max-w-2xl font-['Ambit',sans-serif]">
         <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1 text-xs font-semibold text-accent mb-3 font-['Ambit',sans-serif]">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
