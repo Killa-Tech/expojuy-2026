@@ -21,8 +21,8 @@ export const Title = ({ title, subtitle, ctaText, onCtaClick }: Props) => {
         </span>
       </div>
 
-      <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-        {parseInt.length > 1 ? (
+      <h1 className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-4 motion-safe:duration-1000 motion-safe:ease-out text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+        {titleParts.length > 1 ? (
           <>
             <span className="text-white drop-shadow-md">
               {titleParts.join(" ")}{" "}
