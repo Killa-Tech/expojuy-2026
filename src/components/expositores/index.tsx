@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Section } from '@/components/section';
-import type { Expositor, DisertacionSecundaria } from './types';
+import type { Expositor } from './types';
 import {
   EXPOSITORES_INICIALES,
   CATEGORIAS_EXPOSITORES,
@@ -10,35 +10,35 @@ import {
   ExpositoresHeader,
   ExpositoresFilters,
   ExpositoresGrid,
-  ExpositorCard,
 } from './components';
 
-// Re-exportar tipos y subcomponentes clave para retrocompatibilidad
-export type { Expositor, DisertacionSecundaria };
-export { ExpositorCard };
+export type { Expositor };
 
-export const Expositores: React.FC = () => {
-  const [expositores, setExpositores] = useState<Expositor[]>(EXPOSITORES_INICIALES);
-  const [busqueda, setBusqueda] = useState<string>('');
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<string>('Todos');
-  const [auditorioSeleccionado, setAuditorioSeleccionado] = useState<string>('Todos');
+export const Expositores = () => {
+  const [busqueda, setBusqueda] = useState('');
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Todos');
+  const [auditorioSeleccionado, setAuditorioSeleccionado] = useState('Todos');
 
-  // Filtrado reactivo de expositores
-  const expositoresFiltrados = expositores.filter((exp) => {
-    const coincideTexto =
-      exp.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
-      exp.tituloDisertacion.toLowerCase().includes(busqueda.toLowerCase()) ||
-      exp.organizacion.toLowerCase().includes(busqueda.toLowerCase());
+  // Filtrado reactivo optimizado
+  const expositoresFiltrados = useMemo(() => {
+    const query = busqueda.trim().toLowerCase();
 
-    const coincideCategoria =
-      categoriaSeleccionada === 'Todos' || exp.categoria === categoriaSeleccionada;
+    return EXPOSITORES_INICIALES.filter((exp) => {
+      const coincideTexto =
+        !query ||
+        exp.nombre.toLowerCase().includes(query) ||
+        exp.tituloDisertacion.toLowerCase().includes(query) ||
+        exp.organizacion.toLowerCase().includes(query);
 
-    const coincideAuditorio =
-      auditorioSeleccionado === 'Todos' || exp.auditorio.includes(auditorioSeleccionado);
+      const coincideCategoria =
+        categoriaSeleccionada === 'Todos' || exp.categoria === categoriaSeleccionada;
 
-    return coincideTexto && coincideCategoria && coincideAuditorio;
-  });
+      const coincideAuditorio =
+        auditorioSeleccionado === 'Todos' || exp.auditorio.includes(auditorioSeleccionado);
 
+      return coincideTexto && coincideCategoria && coincideAuditorio;
+    });
+  }, [busqueda, categoriaSeleccionada, auditorioSeleccionado]);
 
   const handleResetFilters = () => {
     setBusqueda('');
@@ -54,7 +54,7 @@ export const Expositores: React.FC = () => {
     >
       <div className="w-full font-['Ambit',sans-serif]">
         {/* Encabezado Principal de la Sección (Organismo) */}
-        <ExpositoresHeader totalExpositores={expositores.length} />
+        <ExpositoresHeader totalExpositores={EXPOSITORES_INICIALES.length} />
 
         {/* Barra de Filtros y Búsqueda (Organismo) */}
         <ExpositoresFilters
@@ -79,3 +79,4 @@ export const Expositores: React.FC = () => {
 };
 
 export default Expositores;
+
