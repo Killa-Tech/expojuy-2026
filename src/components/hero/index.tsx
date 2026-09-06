@@ -2,7 +2,7 @@ import { SponsorCarousel, type Sponsor } from "./components/SponsorCarousel";
 import { VideoBackground } from "./components/VideoBackground";
 import { Section } from "@/components/section";
 import { VideContextProvider } from "./video-context";
-import { Title } from "./components/Title";
+import { HeroHeader } from "./components/HeroHeader";
 
 interface HeroProps {
   title: string;
@@ -31,7 +31,7 @@ export const Hero = ({
         {/* Contenedor principal con video cuya altura coincide exactamente con la barra de sponsors */}
         <div className="relative flex-1 flex flex-col items-center justify-center w-full">
           <VideoBackground src={videoSrc} />
-          <Title {...{ctaText, onCtaClick, title, subtitle}} />
+          <HeroHeader {...{ctaText, onCtaClick, title, subtitle}} />
         </div>
         <SponsorCarousel sponsors={sponsors} />
       </Section>
