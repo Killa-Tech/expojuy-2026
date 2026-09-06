@@ -1,15 +1,11 @@
 import React from 'react';
 import { Clock, ChevronRight } from 'lucide-react';
-import type { CronogramaItemData } from '../../types';
-import { CRONOGRAMA_PLENARIO_INICIAL } from '../../data';
 
 interface CronogramaPlenarioProps {
-  items?: CronogramaItemData[];
   onVerAgendaCompleta?: () => void;
 }
 
 export const CronogramaPlenario: React.FC<CronogramaPlenarioProps> = ({
-  items = CRONOGRAMA_PLENARIO_INICIAL,
   onVerAgendaCompleta,
 }) => {
   return (

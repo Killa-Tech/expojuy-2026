@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface SponsorLogoProps {
     name: string;
@@ -6,12 +6,8 @@ interface SponsorLogoProps {
 }
 
 export function SponsorLogo({ name, logoUrl }: SponsorLogoProps) {
-    const [imgError, setImgError] = useState(false);
-
-    // Reiniciar el estado de error si cambia la URL
-    useEffect(() => {
-        setImgError(false);
-    }, [logoUrl]);
+    const [imgErrorUrl, setImgErrorUrl] = useState<string | null>(null);
+    const imgError = imgErrorUrl === logoUrl;
 
     return (
         <div className="flex items-center gap-3 min-w-[170px] px-3.5 py-2 mx-2 rounded-xl bg-primary/5 border border-primary/35 hover:border-primary/80 hover:bg-primary/10 backdrop-blur-sm transition-all duration-300 group cursor-pointer shadow-sm">
@@ -22,7 +18,7 @@ export function SponsorLogo({ name, logoUrl }: SponsorLogoProps) {
                         alt={`${name} logo`}
                         onError={() => {
                             console.warn(`No se pudo cargar la imagen: ${logoUrl}`);
-                            setImgError(true);
+                            setImgErrorUrl(logoUrl);
                         }}
                         className="h-7 md:h-8 w-auto max-w-[130px] object-contain transition-all"
                     />
