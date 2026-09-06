@@ -1,3 +1,5 @@
+import { useVideoContext } from "../video-context";
+
 interface Props {
   title: string;
   subtitle: string;
@@ -6,9 +8,10 @@ interface Props {
 }
 
 export const Title = ({ title, subtitle, ctaText, onCtaClick }: Props) => {
+  const {isVideoLoaded} = useVideoContext()
   const titleParts = title.trim().split(" ");
 
-  return (
+  return isVideoLoaded && (
     <div className="flex-1 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto py-8 md:py-10">
       {/* Nivel 3: Badge contextual */}
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-violet/40 border border-brand-lilac/30 backdrop-blur-md mb-6 shadow-sm">
