@@ -63,9 +63,9 @@ export const AgendaCard = ({
         <div className="absolute inset-x-3.5 top-3.5 flex items-center justify-between">
           <div className="flex items-center gap-1.5 rounded-full border border-accent/30 bg-background/80 px-3 py-1 text-xs font-bold text-accent shadow-md backdrop-blur-md">
             <span className="material-symbols-outlined text-[16px] text-accent">
-              schedule
+              &#xe8b5;
             </span>
-            <span>HOY • {time} hs</span>
+            <span className="shrink-0 whitespace-nowrap">HOY • {time} hs</span>
           </div>
           <div className="rounded-full border border-secondary/40 bg-brand-violet px-3 py-1 text-xs font-bold text-purple-100 shadow-md">
             {badge}
@@ -73,7 +73,7 @@ export const AgendaCard = ({
         </div>
         <div className="absolute bottom-3 left-3.5 flex items-center gap-1.5 rounded-lg border border-foreground/10 bg-background/85 px-3 py-1 text-xs font-semibold text-foreground backdrop-blur-md">
           <span className="material-symbols-outlined text-[16px] text-primary">
-            apartment
+            &#xea40;
           </span>
           <span>{location}</span>
         </div>
@@ -83,7 +83,7 @@ export const AgendaCard = ({
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[18px] text-primary">
-              star
+              &#xe838;
             </span>
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-primary">
               {category}
@@ -120,11 +120,11 @@ export const AgendaCard = ({
           <div className="flex items-center justify-between pl-2">
             <span className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-accent">
               <span className="material-symbols-outlined text-[16px] text-accent">
-                celebration
+                &#xea65;
               </span>
               SHOW CENTRAL DEL DÍA
             </span>
-            <span className="rounded-full border border-foreground/10 bg-background/70 px-2.5 py-0.5 text-xs font-bold text-foreground">
+            <span className="shrink-0 whitespace-nowrap rounded-full border border-foreground/10 bg-background/70 px-2.5 py-0.5 text-xs font-bold text-foreground">
               {showTime} hs
             </span>
           </div>
@@ -139,7 +139,7 @@ export const AgendaCard = ({
             </div>
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-secondary/40 bg-secondary/20 text-secondary shadow-md">
               <span className="material-symbols-outlined text-2xl text-secondary">
-                festival
+                &#xea68;
               </span>
             </div>
           </div>
@@ -153,7 +153,7 @@ export const AgendaCard = ({
               type="button"
             >
               <span className="material-symbols-outlined text-[18px]">
-                event_available
+                &#xe614;
               </span>
               <span>{isScheduled ? "Agendado" : "Agendar"}</span>
             </button>
@@ -165,7 +165,7 @@ export const AgendaCard = ({
               type="button"
             >
               <span className="material-symbols-outlined text-[18px]">
-                share
+                &#xe80d;
               </span>
             </button>
           </div>
@@ -175,7 +175,7 @@ export const AgendaCard = ({
           >
             <span>Detalles del día</span>
             <span className="material-symbols-outlined text-[16px]">
-              arrow_forward
+              &#xe5c8;
             </span>
           </a>
         </div>

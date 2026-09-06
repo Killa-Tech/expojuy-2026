@@ -1,11 +1,48 @@
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1");
-
+@import "@fontsource/material-symbols-outlined/400.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
-
 @custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Ambit";
+  src: url("./assets/ambit-font/Ambit-Light.otf") format("opentype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ambit";
+  src: url("./assets/ambit-font/Ambit-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ambit";
+  src: url("./assets/ambit-font/Ambit-SemiBold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ambit";
+  src: url("./assets/ambit-font/Ambit-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ambit";
+  src: url("./assets/ambit-font/Ambit-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
 
 @theme {
   --color-brand-cyan: #00c2cb;
@@ -89,14 +126,36 @@
 }
 
 @layer base {
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined" !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga" !important;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "liga" !important;
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
+  }
+
   html {
     background-color: var(--theme-bg);
+    font-family: "Ambit", sans-serif;
     @apply font-sans;
   }
 
   body {
     background-color: var(--theme-bg);
     color: var(--theme-text);
+    font-family: "Ambit", sans-serif;
     transition:
       background-color 180ms ease,
       color 180ms ease;
@@ -127,7 +186,7 @@
 
 @theme inline {
   --font-heading: var(--font-sans);
-  --font-sans: 'Geist Variable', sans-serif;
+  --font-sans: "Ambit", sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
