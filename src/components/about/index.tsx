@@ -1,4 +1,4 @@
-import { Section } from "@/components/section"
+import { Section } from "@/components/section";
 import { useState } from "react";
 
 const purposes = [
@@ -46,9 +46,13 @@ export const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Section id="about" label="Sobre nosotros" className="w-full bg-background px-4 py-8 text-foreground sm:px-6 md:px-12">
-      <div className="mx-auto max-w-[1720px] rounded-[2rem] border border-foreground/10 bg-foreground/[0.03] px-5 py-8 shadow-2xl shadow-primary/5 sm:px-8 md:px-10 md:py-10">
-        <div className="mx-auto max-w-5xl text-center">
+    <Section
+      id="about"
+      label="Sobre nosotros"
+      className="w-full bg-background px-4 py-8 text-foreground sm:px-6 md:px-12"
+    >
+      <div className="w-full rounded-[2rem] px-5 py-8 shadow-2xl shadow-primary/5 sm:px-8 md:px-10 md:py-10">
+        <div className="w-full text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent">
             <span
               className="h-2 w-2 rounded-full bg-accent"

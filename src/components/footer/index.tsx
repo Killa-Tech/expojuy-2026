@@ -27,7 +27,7 @@ const socialLinks = [
 export const Footer = () => {
   return (
     <footer className="border-t border-foreground/10 bg-background text-foreground">
-      <div className="mx-auto max-w-[1720px] px-6 pb-8 pt-14 lg:px-10 lg:pt-16">
+      <div className="w-full px-6 pb-8 pt-14 lg:px-10 lg:pt-16">
         <div className="flex flex-wrap gap-x-10 gap-y-12">
           <section className="min-w-[min(100%,20rem)] flex-[1.5_1_20rem]">
             <a
