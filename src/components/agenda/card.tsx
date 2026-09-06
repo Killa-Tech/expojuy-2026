@@ -67,7 +67,7 @@ export const AgendaCard = ({
             </span>
             <span>HOY • {time} hs</span>
           </div>
-          <div className="rounded-full border border-secondary/40 bg-brand-violet px-3 py-1 text-xs font-bold text-primary-foreground shadow-md">
+          <div className="rounded-full border border-secondary/40 bg-brand-violet px-3 py-1 text-xs font-bold text-purple-100 shadow-md">
             {badge}
           </div>
         </div>
