@@ -1,4 +1,12 @@
 import logo from "@/assets/logo-header.png";
+import {
+  ArrowUp,
+  CalendarDays,
+  Clock3,
+  Globe2,
+  History,
+  MapPin,
+} from "lucide-react";
 
 const eventLinks = [
   "Sobre Expojuy",
@@ -72,39 +80,19 @@ export const Footer = () => {
             </h2>
             <ul className="mt-4 space-y-4 text-sm text-foreground/70">
               <li className="flex gap-3">
-                <span
-                  className="material-symbols-outlined text-xl text-primary"
-                  aria-hidden="true"
-                >
-                  location_on
-                </span>
+                <MapPin className="size-5 text-primary" aria-hidden="true" />
                 <span>Predio Ciudad Cultural, San Salvador de Jujuy</span>
               </li>
               <li className="flex gap-3">
-                <span
-                  className="material-symbols-outlined text-xl text-primary"
-                  aria-hidden="true"
-                >
-                  event
-                </span>
+                <CalendarDays className="size-5 text-primary" aria-hidden="true" />
                 <span>Fecha: 08 al 12 de octubre 2026</span>
               </li>
               <li className="flex gap-3">
-                <span
-                  className="material-symbols-outlined text-xl text-primary"
-                  aria-hidden="true"
-                >
-                  history
-                </span>
+                <History className="size-5 text-primary" aria-hidden="true" />
                 <span>Frecuencia: Bianual</span>
               </li>
               <li className="flex gap-3">
-                <span
-                  className="material-symbols-outlined text-xl text-primary"
-                  aria-hidden="true"
-                >
-                  language
-                </span>
+                <Globe2 className="size-5 text-primary" aria-hidden="true" />
                 <a
                   href="https://www.expojuy.com.ar"
                   className="underline decoration-foreground/30 underline-offset-2 hover:text-primary"
@@ -113,12 +101,7 @@ export const Footer = () => {
                 </a>
               </li>
               <li className="flex gap-3">
-                <span
-                  className="material-symbols-outlined text-xl text-primary"
-                  aria-hidden="true"
-                >
-                  schedule
-                </span>
+                <Clock3 className="size-5 text-primary" aria-hidden="true" />
                 <span>Acreditaciones: 10:00 a 22:00 hs</span>
               </li>
             </ul>
@@ -132,9 +115,7 @@ export const Footer = () => {
           className="mx-auto mt-10 flex w-fit items-center gap-2 text-sm font-semibold text-foreground/60 transition-colors hover:text-primary"
         >
           Volver al principio
-          <span className="material-symbols-outlined" aria-hidden="true">
-            arrow_upward
-          </span>
+          <ArrowUp className="size-5" aria-hidden="true" />
         </a>
 
         <div className="mt-5 border-t border-foreground/10 pt-8 text-sm text-foreground/60">
