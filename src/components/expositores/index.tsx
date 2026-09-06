@@ -40,15 +40,6 @@ export const Expositores: React.FC = () => {
   });
 
 
-  const handleEditarExpositor = (exp: Expositor) => {
-    const nuevoNombre = prompt("Editar nombre del expositor:", exp.nombre);
-    if (nuevoNombre) {
-      setExpositores((prev) =>
-        prev.map((item) => (item.id === exp.id ? { ...item, nombre: nuevoNombre } : item))
-      );
-    }
-  };
-
   const handleResetFilters = () => {
     setBusqueda('');
     setCategoriaSeleccionada('Todos');
@@ -80,7 +71,6 @@ export const Expositores: React.FC = () => {
         {/* Grilla de Expositores o Estado Vacío (Organismo) */}
         <ExpositoresGrid
           expositores={expositoresFiltrados}
-          onEdit={handleEditarExpositor}
           onResetFilters={handleResetFilters}
         />
       </div>

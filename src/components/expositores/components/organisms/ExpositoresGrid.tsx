@@ -5,13 +5,11 @@ import { ExpositoresEmptyState } from '../molecules/ExpositoresEmptyState';
 
 interface ExpositoresGridProps {
   expositores: Expositor[];
-  onEdit?: (expositor: Expositor) => void;
   onResetFilters: () => void;
 }
 
 export const ExpositoresGrid: React.FC<ExpositoresGridProps> = ({
   expositores,
-  onEdit,
   onResetFilters,
 }) => {
   return (
@@ -31,7 +29,6 @@ export const ExpositoresGrid: React.FC<ExpositoresGridProps> = ({
             <ExpositorCard
               key={exp.id}
               expositor={exp}
-              onEdit={onEdit}
             />
           ))}
         </div>
