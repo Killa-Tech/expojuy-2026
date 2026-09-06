@@ -15,13 +15,13 @@ export const ExpositoresGrid: React.FC<ExpositoresGridProps> = ({
   onResetFilters,
 }) => {
   return (
-    <div className="mt-10">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-          <span className="text-[#6c35de]">★</span> Oradores Magistrales Confirmados
+    <div className="mt-10 font-['Ambit',sans-serif]">
+      <div className="flex items-center justify-between mb-6 font-['Ambit',sans-serif]">
+        <h2 className="text-xl font-bold tracking-tight text-foreground flex items-center gap-2 font-['Ambit',sans-serif]">
+          <span className="text-primary">★</span> Oradores Magistrales Confirmados
         </h2>
-        <span className="text-xs text-slate-500 font-medium">
-          Mostrando <strong className="text-slate-800">{expositores.length}</strong> disertantes
+        <span className="text-xs text-muted-foreground font-medium font-['Ambit',sans-serif]">
+          Mostrando <strong className="text-foreground">{expositores.length}</strong> disertantes
         </span>
       </div>
 

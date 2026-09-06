@@ -59,9 +59,9 @@ export const Expositores: React.FC = () => {
     <Section
       id="expositores"
       label="Expositores"
-      className="w-full bg-[#fcf9f8] py-12 px-4 sm:px-6 lg:px-8 font-sans text-slate-900"
+      className="w-full bg-background py-12 px-4 sm:px-6 lg:px-8 font-['Ambit',sans-serif] text-foreground transition-colors duration-200"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl font-['Ambit',sans-serif]">
         {/* Encabezado Principal de la Sección (Organismo) */}
         <ExpositoresHeader totalExpositores={expositores.length} />
 

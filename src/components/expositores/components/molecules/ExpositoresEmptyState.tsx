@@ -7,18 +7,18 @@ interface ExpositoresEmptyStateProps {
 
 export const ExpositoresEmptyState: React.FC<ExpositoresEmptyStateProps> = ({ onResetFilters }) => {
   return (
-    <div className="rounded-2xl border-2 border-dashed border-slate-200 bg-white p-12 text-center">
-      <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-400">
+    <div className="rounded-2xl border-2 border-dashed border-border bg-card text-card-foreground p-12 text-center transition-colors font-['Ambit',sans-serif]">
+      <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-muted text-muted-foreground">
         <SearchX className="h-6 w-6" />
       </div>
-      <p className="text-base font-semibold text-slate-700">No se encontraron expositores</p>
-      <p className="mt-1 text-xs text-slate-500">
+      <p className="text-base font-semibold text-foreground font-['Ambit',sans-serif]">No se encontraron expositores</p>
+      <p className="mt-1 text-xs text-muted-foreground font-['Ambit',sans-serif]">
         Prueba ajustando los filtros temáticos o el término de búsqueda.
       </p>
       <button
         type="button"
         onClick={onResetFilters}
-        className="mt-4 rounded-xl bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer"
+        className="mt-4 rounded-xl bg-muted px-4 py-2 text-xs font-semibold font-['Ambit',sans-serif] text-foreground hover:bg-muted/80 transition-colors cursor-pointer"
       >
         Limpiar Filtros
       </button>

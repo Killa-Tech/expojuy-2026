@@ -24,17 +24,17 @@ export const ExpositoresFilters: React.FC<ExpositoresFiltersProps> = ({
   auditorios,
 }) => {
   return (
-    <div className="mt-8 flex flex-col gap-4 rounded-2xl bg-white p-4 shadow-sm border border-slate-200/80">
-      <div className="flex flex-col sm:flex-row items-center gap-3">
+    <div className="mt-8 flex flex-col gap-4 rounded-2xl bg-card text-card-foreground p-4 shadow-sm border border-border transition-colors font-['Ambit',sans-serif]">
+      <div className="flex flex-col sm:flex-row items-center gap-3 font-['Ambit',sans-serif]">
         {/* Input de Búsqueda */}
-        <div className="relative w-full sm:flex-1">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+        <div className="relative w-full sm:flex-1 font-['Ambit',sans-serif]">
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <input
             type="text"
             placeholder="Buscar por nombre, cargo, empresa o eje temático..."
             value={busqueda}
             onChange={(e) => onBusquedaChange(e.target.value)}
-            className="w-full rounded-xl bg-slate-50 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-slate-900 border border-slate-200 placeholder-slate-400 focus:bg-white focus:border-[#6c35de] focus:outline-none focus:ring-2 focus:ring-[#6c35de]/10 transition-all"
+            className="w-full rounded-xl bg-muted/50 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-foreground font-['Ambit',sans-serif] border border-input placeholder:text-muted-foreground placeholder:font-['Ambit',sans-serif] focus:bg-background focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
           />
         </div>
 
@@ -42,10 +42,10 @@ export const ExpositoresFilters: React.FC<ExpositoresFiltersProps> = ({
         <select
           value={auditorioSeleccionado}
           onChange={(e) => onAuditorioChange(e.target.value)}
-          className="w-full sm:w-56 rounded-xl bg-slate-50 px-3.5 py-2.5 text-xs sm:text-sm text-slate-700 border border-slate-200 focus:bg-white focus:border-[#6c35de] focus:outline-none transition-all cursor-pointer"
+          className="w-full sm:w-56 rounded-xl bg-muted/50 px-3.5 py-2.5 text-xs sm:text-sm text-foreground font-['Ambit',sans-serif] border border-input focus:bg-background focus:border-primary focus:outline-none transition-all cursor-pointer"
         >
           {auditorios.map((auditorio) => (
-            <option key={auditorio} value={auditorio}>
+            <option key={auditorio} value={auditorio} className="bg-card text-card-foreground font-['Ambit',sans-serif]">
               {auditorio === 'Todos' ? 'Todos los Auditorios' : auditorio}
             </option>
           ))}
