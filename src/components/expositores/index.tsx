@@ -29,7 +29,7 @@ export interface Expositor {
   organizacion: string;
   pais: string;
   paisCodigo: string; // ej. 'ARG', 'CHL', 'BRA'
-  categoria: 'Comercio Exterior' | 'Minería & Litio' | 'Agroindustria' | 'Innovación & Tech' | 'Energías Renovables';
+  categoria: string | 'Comercio Exterior' | 'Minería & Litio' | 'Agroindustria' | 'Innovación & Tech' | 'Energías Renovables';
   tipoParticipacion: string; // ej. 'Plenaria Central', 'Keynote Session'
   tituloDisertacion: string;
   fecha: string;
