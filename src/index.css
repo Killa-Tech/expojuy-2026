@@ -3,9 +3,47 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
-
 @custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Ambit";
+  src: url("./assets/ambit-font/Ambit-Light.otf") format("opentype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ambit";
+  src: url("./assets/ambit-font/Ambit-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ambit";
+  src: url("./assets/ambit-font/Ambit-SemiBold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ambit";
+  src: url("./assets/ambit-font/Ambit-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ambit";
+  src: url("./assets/ambit-font/Ambit-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
 
 @theme {
   --color-brand-cyan: #00c2cb;
@@ -91,12 +129,14 @@
 @layer base {
   html {
     background-color: var(--theme-bg);
+    font-family: "Ambit", sans-serif;
     @apply font-sans;
   }
 
   body {
     background-color: var(--theme-bg);
     color: var(--theme-text);
+    font-family: "Ambit", sans-serif;
     transition:
       background-color 180ms ease,
       color 180ms ease;
@@ -127,7 +167,7 @@
 
 @theme inline {
   --font-heading: var(--font-sans);
-  --font-sans: 'Geist Variable', sans-serif;
+  --font-sans: "Ambit", sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
