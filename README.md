@@ -8,10 +8,10 @@ El objetivo del proyecto es redefinir la experiencia digital de uno de los event
 
 ## 👥 Nuestro Equipo
 
-*   **Nombre del Equipo:** *[Nombre de tu equipo aquí]*
-*   **Representante de Equipo:** *[Nombre del representante]* (Interlocutor oficial ante la organización)
+*   **Nombre del Equipo:** *killa tech*
+*   **Representante de Equipo:** *Rodríguez, Jesus Matias* (Interlocutor oficial ante la organización)
 *   **Integrantes:**
-    1.  *[Nombre Integrante 1]* — *[Rol: Ej. Diseñador UX/UI]*
+    1.  *Rodríguez, Jesus Matias* — *Ing. Informático*
     2.  *Cachambi, Nahuel Alberto* — *Analista Programador Universitario*
     3.  *Peloc, Sergio Antonino* — *Ing. Informatico*
     4.  *Erazo, Joaquin* — *Lic. Sistemas*
