@@ -18,4 +18,28 @@ export default defineConfig({
     tailwindcss(),
     qrcode(),
   ],
+  build: {
+    // Three.js and MapLibre are intentionally isolated lazy vendors.
+    // Their minified size is intrinsic to the libraries, not the initial bundle.
+    chunkSizeWarningLimit: 1100,
+    rolldownOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules/three/")) {
+            return "three-core";
+          }
+          if (id.includes("node_modules/@react-three/fiber")) {
+            return "react-three-fiber";
+          }
+          if (id.includes("node_modules/@react-three/drei")) {
+            return "react-three-drei";
+          }
+          if (id.includes("node_modules/maplibre-gl/")) {
+            return "maplibre";
+          }
+          return undefined;
+        },
+      },
+    },
+  },
 })

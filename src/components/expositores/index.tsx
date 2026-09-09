@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-import { Section } from '@/components/section';
 import type { Expositor } from './types';
 import {
   EXPOSITORES_INICIALES,
@@ -47,11 +46,7 @@ export const Expositores = () => {
   };
 
   return (
-    <Section
-      id="expositores"
-      label="Expositores"
-      className="flex w-full flex-col items-center bg-background px-6 py-8 text-foreground md:px-12 font-['Ambit',sans-serif] transition-colors duration-200"
-    >
+    <div className="flex w-full flex-col items-center bg-background px-6 py-8 text-foreground md:px-12 font-['Ambit',sans-serif] transition-colors duration-200">
       <div className="w-full font-['Ambit',sans-serif]">
         {/* Encabezado Principal de la Sección (Organismo) */}
         <ExpositoresHeader totalExpositores={EXPOSITORES_INICIALES.length} />
@@ -74,9 +69,8 @@ export const Expositores = () => {
           onResetFilters={handleResetFilters}
         />
       </div>
-    </Section>
+    </div>
   );
 };
 
 export default Expositores;
-

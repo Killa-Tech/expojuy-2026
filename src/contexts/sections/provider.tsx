@@ -1,5 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react"
-import { SectionsContext, type SectionDefinition, type SectionId } from "./context"
+import {
+  SectionsContext,
+  type SectionDefinition,
+  type SectionId,
+  type SectionState,
+} from "./context"
 
 export const SectionsProvider = ({ children }: { children: React.ReactNode }) => {
   const [activeSection, setActiveSection] = useState<SectionId | null>(null)
@@ -7,6 +12,8 @@ export const SectionsProvider = ({ children }: { children: React.ReactNode }) =>
   const sections = useRef(new Map<SectionId, { definition: SectionDefinition; element: HTMLElement }>())
   const observer = useRef<IntersectionObserver | null>(null)
   const visibleSections = useRef(new Map<SectionId, number>())
+  const [sectionStates, setSectionStates] = useState(() => new Map<SectionId, SectionState>())
+  const sectionStatesRef = useRef(sectionStates)
 
   useEffect(() => {
     const visibleEntries = visibleSections.current
@@ -15,11 +22,34 @@ export const SectionsProvider = ({ children }: { children: React.ReactNode }) =>
       (entries) => {
         entries.forEach((entry) => {
           const sectionId = entry.target.id
+          const previous = sectionStatesRef.current.get(sectionId) ?? {
+            hasEntered: false,
+            isVisible: false,
+          }
+          const isVisible =
+            entry.boundingClientRect.bottom > 0 &&
+            entry.boundingClientRect.top < window.innerHeight
+          const next = {
+            hasEntered: previous.hasEntered || entry.isIntersecting,
+            isVisible,
+          }
 
-          if (entry.isIntersecting) {
+          if (isVisible) {
             visibleEntries.set(sectionId, entry.intersectionRatio)
           } else {
             visibleEntries.delete(sectionId)
+          }
+
+          if (
+            previous.hasEntered !== next.hasEntered ||
+            previous.isVisible !== next.isVisible
+          ) {
+            sectionStatesRef.current.set(sectionId, next)
+            setSectionStates((current) => {
+              const updated = new Map(current)
+              updated.set(sectionId, next)
+              return updated
+            })
           }
         })
 
@@ -43,12 +73,21 @@ export const SectionsProvider = ({ children }: { children: React.ReactNode }) =>
       observer.current?.disconnect()
       observer.current = null
       visibleEntries.clear()
+      sectionStatesRef.current.clear()
+      setSectionStates(new Map())
     }
   }, [])
 
   const registerSection = useCallback((id: SectionId, label: string, element: HTMLElement) => {
     sections.current.set(id, { definition: { id, label }, element })
     observer.current?.observe(element)
+    setSectionStates((current) => {
+      if (current.has(id)) return current
+      const updated = new Map(current)
+      updated.set(id, { hasEntered: false, isVisible: false })
+      sectionStatesRef.current = updated
+      return updated
+    })
     setRegisteredSections([...sections.current.values()].map(({ definition }) => definition))
   }, [])
 
@@ -56,6 +95,12 @@ export const SectionsProvider = ({ children }: { children: React.ReactNode }) =>
     if (sections.current.get(id)?.element === element) {
       observer.current?.unobserve(element)
       visibleSections.current.delete(id)
+      setSectionStates((current) => {
+        const updated = new Map(current)
+        updated.delete(id)
+        sectionStatesRef.current = updated
+        return updated
+      })
       sections.current.delete(id)
       setRegisteredSections([...sections.current.values()].map(({ definition }) => definition))
     }
@@ -69,6 +114,8 @@ export const SectionsProvider = ({ children }: { children: React.ReactNode }) =>
         registerSection,
         unregisterSection,
         setActiveSection,
+        getSectionState: (id) =>
+          sectionStates.get(id) ?? { hasEntered: false, isVisible: false },
       }}
     >
       {children}
